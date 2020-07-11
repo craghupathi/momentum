@@ -1,6 +1,36 @@
 import 'package:flutter/material.dart';
+import 'profile.dart';
+import 'register.dart';
+import 'splash.dart';
+import 'login.dart';
+import 'home.dart';
 
 void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+// This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'momentum',
+        theme: ThemeData(
+          fontFamily: 'Montserrat',
+          primarySwatch: Colors.purple,
+          textTheme: TextTheme(
+            bodyText2: TextStyle(fontWeight: FontWeight.w300),
+          ),
+        ),
+        home: SplashPage(),
+        routes: <String, WidgetBuilder>{
+          '/task': (BuildContext context) => ProfilePage(title: 'profile'),
+          '/home': (BuildContext context) => HomePage(title: 'home'),
+          '/login': (BuildContext context) => LoginPage(),
+          '/register': (BuildContext context) => RegisterPage(),
+        });
+  }
+}
+
+/*void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -73,3 +103,4 @@ class _WelcomeButtonState extends State<WelcomeButton> {
     );
   }
 }
+*/
